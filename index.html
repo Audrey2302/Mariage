@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pauline & Sébastien - 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f8f4f0;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%);
+        }
+
+        .wavy-border {
+            position: absolute;
+            width: 90%;
+            max-width: 700px;
+            height: 80%;
+            border: 8px solid #e67e50;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: morphing 8s ease-in-out infinite;
+        }
+
+        @keyframes morphing {
+            0%, 100% { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
+            50% { border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-family: 'Cormorant', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: #e67e50;
+            margin-bottom: 15px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .ampersand {
+            font-size: 3rem;
+            display: block;
+            margin: 10px 0;
+            color: #d4a574;
+        }
+
+        .date {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            letter-spacing: 3px;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            color: #e67e50;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        /* Info Cards */
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(230, 126, 80, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #e67e50, #d4a574);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-family: 'Cormorant', serif;
+            font-size: 1.8rem;
+            color: #e67e50;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Floral decoration */
+        .floral-divider {
+            text-align: center;
+            font-size: 2rem;
+            margin: 50px 0;
+            color: #e67e50;
+        }
+
+        /* RSVP Form */
+        .rsvp-section {
+            background: white;
+            border-radius: 30px;
+            padding: 60px 40px;
+            box-shadow: 0 15px 50px rgba(230, 126, 80, 0.15);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #f0e5dc;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #e67e50;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #e67e50;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            accent-color: #e67e50;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #e67e50, #d4a574);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(230, 126, 80, 0.4);
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #f8f4f0;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.2rem; }
+            .hero { min-height: 90vh; }
+            .rsvp-section { padding: 40px 25px; }
+            .radio-group { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="wavy-border"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">Pauline</h1>
+            <span class="ampersand">&</span>
+            <h1 class="fade-in">Sébastien</h1>
+            <p class="date">SE MARIENT</p>
+            <p class="date">10 • OCTOBRE • 2026</p>
+        </div>
+        <div class="scroll-indicator">
+            <span style="font-size: 2rem;">↓</span>
+        </div>
+    </div>
+
+    <!-- Informations Section -->
+    <section>
+        <h2>Les Informations</h2>
+        <div class="info-container">
+            <div class="card">
+                <div class="card-icon">💒</div>
+                <h3>La Cérémonie</h3>
+                <p><strong>15h00</strong></p>
+                <p>Église Saint-Martin<br>Place de l'Église<br>75015 Paris</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🥂</div>
+                <h3>Le Vin d'Honneur</h3>
+                <p><strong>17h00</strong></p>
+                <p>Jardins du Château<br>123 Avenue des Roses<br>75016 Paris</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🍽️</div>
+                <h3>La Réception</h3>
+                <p><strong>19h30</strong></p>
+                <p>Dîner & soirée dansante<br>Jusqu'au bout de la nuit !</p>
+            </div>
+        </div>
+
+        <div class="floral-divider">
+            🌸 ✨ 🌸
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <div class="card-icon">🏨</div>
+            <h3>Hébergement</h3>
+            <p>Possibilité de dormir sur place (nombre de places limité)</p>
+            <p style="margin-top: 10px; color: #888; font-size: 0.9rem;">À préciser dans le formulaire RSVP</p>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section>
+        <h2>Confirmez votre présence</h2>
+        <div class="rsvp-section">
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">
+                Merci de confirmer avant le <strong>1er Mai 2025</strong>
+            </p>
+
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="nom">Nom et Prénom *</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Serez-vous présent(e) ? *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="oui" name="presence" value="oui" required>
+                            <label for="oui">Oui, avec plaisir ! 🎉</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="non" name="presence" value="non">
+                            <label for="non">Malheureusement non 😢</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="detailsSection" style="display: none;">
+                    <div class="form-group">
+                        <label>Venez-vous accompagné(e) ?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="seul" name="accompagnement" value="seul">
+                                <label for="seul">Seul(e)</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="plus1" name="accompagnement" value="plus1">
+                                <label for="plus1">Avec un +1</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="nomPlus1Group" style="display: none;">
+                        <label for="nomPlus1">Nom du +1</label>
+                        <input type="text" id="nomPlus1" name="nomPlus1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="allergies">Allergies ou régimes alimentaires</label>
+                        <textarea id="allergies" name="allergies" placeholder="Merci de préciser si vous ou votre accompagnant(e) avez des restrictions alimentaires"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="hebergement" name="hebergement">
+                            <label for="hebergement">Je souhaite dormir sur place</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit">Envoyer ma réponse 💌</button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                ✨ Merci ! Votre réponse a bien été enregistrée ! ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Avec amour, Pauline & Sébastien 🤍</p>
+        <p style="margin-top: 10px;">On a hâte de célébrer ce jour avec vous !</p>
+    </footer>
+
+    <script>
+        // Afficher/masquer les détails selon la présence
+        const radioOui = document.getElementById('oui');
+        const radioNon = document.getElementById('non');
+        const detailsSection = document.getElementById('detailsSection');
+        const radioPlus1 = document.getElementById('plus1');
+        const nomPlus1Group = document.getElementById('nomPlus1Group');
+
+        radioOui.addEventListener('change', () => {
+            detailsSection.style.display = 'block';
+        });
+
+        radioNon.addEventListener('change', () => {
+            detailsSection.style.display = 'none';
+        });
+
+        radioPlus1.addEventListener('change', () => {
+            nomPlus1Group.style.display = 'block';
+        });
+
+        document.getElementById('seul').addEventListener('change', () => {
+            nomPlus1Group.style.display = 'none';
+        });
+
+        // Gérer la soumission du formulaire
+        document.getElementById('rsvpForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            console.log('Données RSVP:', data);
+            
+            // Afficher le message de succès
+            document.getElementById('successMessage').style.display = 'block';
+            e.target.style.display = 'none';
+            
+            // Ici, vous pouvez ajouter l'envoi vers un service backend
+            // Par exemple: fetch('/api/rsvp', { method: 'POST', body: JSON.stringify(data) })
+        });
+
+        // Animation au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
